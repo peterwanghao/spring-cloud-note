@@ -1,0 +1,31 @@
+{
+  "title": "Spring Cloud Learning Notes",
+  "author": "peterwanghao",
+  "description": "",
+  "language": "zh-hans",
+  "links" : {
+    "sidebar" : {
+        "Github" : "http://github.com/peterwanghao"
+    }
+  },
+  "plugins": [
+    "multipart",
+    "image-captions",
+    "sectionx",
+    "anchor-navigation",
+    "splitter",
+    "-sharing"
+  ],
+  "pluginsConfig": {
+      "image-captions": {
+          "caption": "_CAPTION_"
+      },
+      "toc2": {
+        "addClass": true,
+        "className": "toc"
+      },
+      "theme-default": {
+        "showLevel": false
+      }
+  }
+}
