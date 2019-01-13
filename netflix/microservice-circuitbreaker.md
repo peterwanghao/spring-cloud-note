@@ -11,20 +11,27 @@
  - 半开 - 超时后，断路器切换到半开状态，以测试问题是否仍然存在。如果在这种半开状态下单个调用失败，则断路器再次打开。如果成功，则断路器重置回正常关闭状态。
 
 断路器的实现采用状态机模式
+
 ![这里写图片描述](https://img-blog.csdn.net/20180808155403650?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 以下是每个断路器状态的说明和流程图。
 
 **关闭状态下的断路器**
+
 当断路器处于CLOSED状态时，所有呼叫都将进入供应商微服务，后者无任何延迟地响应。
+
 ![这里写图片描述](https://img-blog.csdn.net/20180808155809377?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 **打开状态下的断路器**
+
 如果供应商微服务响应缓慢，则断路器会收到对该服务的任何请求的超时。一旦超时次数达到预定阈值，它就会使断路器跳闸到打开状态。在OPEN状态下，断路器为所有对服务的调用返回错误，而不调用Supplier Microservice。此行为允许供应商微服务通过减少其负载来恢复。
+
 ![这里写图片描述](https://img-blog.csdn.net/20180808155839965?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 **半开状态下的断路器**
+
 断路器使用称为HALF-OPEN状态的监视和反馈机制来了解供应商微服务是否以及何时恢复。它使用这种机制定期对供应商微服务进行试用，以检查它是否已经恢复。如果对供应商微服务的调用超时，则断路器保持在OPEN状态。如果调用返回成功，则电路切换到CLOSED状态。
+
 ![这里写图片描述](https://img-blog.csdn.net/20180808155910470?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 断路器对服务监控很有价值。监视，记录和恢复任何断路器的状态变化，以确保服务可用性。 通过断路器状态变化可帮助您为容错系统添加逻辑。例如，如果产品目录服务不可用（断路已打开），则UI可以从缓存中获取产品列表。 断路器模式可以优雅地处理关键服务的停机时间和速度，并通过减少负载来帮助这些服务恢复。
