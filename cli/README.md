@@ -1,12 +1,12 @@
 # 第九章 Spring Cloud CLI
 
-# 1.简介
+## 1.简介
 
 在本节中，我们将介绍Spring Boot Cloud CLI（或简称Cloud CLI）。该工具为Spring Boot CLI提供了一组命令行增强功能，有助于进一步抽象和简化Spring Cloud部署。
 
 CLI于2016年底推出，允许使用命令行、.yml配置文件和Groovy脚本快速自动配置和部署标准Spring Cloud服务。
 
-# 2.安装
+## 2.安装
 
 Spring Boot Cloud CLI 1.3.x需要Spring Boot CLI 1.5.x，因此请务必从[Maven Central](https://search.maven.org/classic/#search%7Cga%7C1%7Ca%3A%22spring-boot-cli%22)获取最新版本的Spring Boot CLI （[安装说明](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html#getting-started-manual-cli-installation)）以及[Maven资源库](https://search.maven.org/classic/#search%7Cga%7C1%7Ca%3A%22spring-cloud-cli%22)中的最新版本的Cloud CLI （[官方Spring存储库](https://repo.spring.io/snapshot/org/springframework/cloud/spring-cloud-cli/)）！
 
@@ -29,7 +29,7 @@ $ spring cloud --version
 
 可以在[官方Cloud CLI 页面](https://cloud.spring.io/spring-cloud-cli/)上找到更多安装说明！
 
-# 3.默认服务和配置
+## 3.默认服务和配置
 
 CLI提供七种核心服务，可以使用单行命令运行和部署。
 
@@ -80,7 +80,7 @@ $ spring help cloud
 
 有关这些命令的更多详细信息，请查看官方[博客](https://spring.io/blog/2016/11/02/introducing-the-spring-cloud-cli-launcher)。
 
-# 4.使用YML自定义云服务
+## 4.使用YML自定义云服务
 
 还可以使用相应命名的.yml文件配置可通过Cloud CLI部署的云服务：
 ```
@@ -120,7 +120,7 @@ spring:
 
 该yml允许通过使用Maven或Git库，添加自定义的服务或模块。
 
-# 5.运行自定义Groovy脚本
+## 5.运行自定义Groovy脚本
 
 自定义组件可以用Groovy编写并高效部署，因为Cloud CLI可以编译和部署Groovy代码。
 
@@ -144,19 +144,19 @@ $ spring run restapi.groovy
 {"message":"Hello"}
 ```
 
-# 6.加密/解密
+## 6.加密/解密
 
 Cloud CLI还提供了加密和解密工具（可在org.springframework.cloud.cli.command.*中找到），可以直接通过命令行使用，也可以通过将值传递给Cloud Config Server端点来间接使用。
 
 让我们设置它，看看如何使用它。
 
-## 6.1 安装
+### 6.1 安装
 
 Cloud CLI和Spring Cloud Config Server都使用org.springframework.security.crypto.encrypt.* 来处理加密和解密的命令。
 
 因此，都需要通过Oracle提供的JCE Unlimited Strength Extension，可在[这里](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)找到。
 
-## 6.2 命令行加密和解密
+### 6.2 命令行加密和解密
 
 要通过终端加密' my_value '，请调用：
 ```
@@ -183,7 +183,7 @@ $ spring decrypt --key my_key c93cb36ce1d09d7d62dffd156ef742faaa56f97f135ebd05e9
 encrypted_credential: "{cipher}c93cb36ce1d09d7d62dffd156ef742faaa56f97f135ebd05e90355f80290ce6b"
 ```
 
-## 6.3 使用Config Server加密和解密
+### 6.3 使用Config Server加密和解密
 
 Spring Cloud Config Server公开RESTful端点，其中密钥和加密值对可以存储在Java安全存储或内存中。
 
@@ -197,6 +197,6 @@ curl localhost:8888/decrypt-d 682bc583f4641835fa2db009355293665d2647dade3375c0ee
 //mysecret
 ```
 
-# 7.结论
+## 7.结论
 
 我们在这里专注于Spring Boot Cloud CLI的介绍。有关更多的信息，请查看[官方文档](http://cloud.spring.io/spring-cloud-static/spring-cloud-cli/1.3.2.RELEASE/)。
