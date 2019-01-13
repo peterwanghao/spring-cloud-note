@@ -8,6 +8,9 @@
 * [第二章 Spring Cloud Netflix](./netflix/README.md)
     * [第一节 服务治理Eureka](./netflix/eureka.md)
     * [第二节 断路器Hystrix](./netflix/hystrix.md)
+        * [微服务与断路器](./netflix/microservice-circuitbreaker.md)
+        * [Spring Cloud Hystrix断路器例子](./netflix/hystrix-demo.md)
+        * [集群监控Turbine](./netflix/hystrix-turbine.md)
     * [第三节 客户端调用Ribbon](./netflix/ribbon.md)
     * [第四节 路由Zuul](./netflix/zuul.md)
     * [第五节 外部化配置Archaius](./netflix/archaius.md)
@@ -27,4 +30,3 @@
     * [第一节 与RabbitMQ集成](./stream/rabbitMQ.md)
 * [第八章 Spring Cloud Task](./task/README.md)
 * [第九章 Spring Cloud CLI](./cli/README.md)
-
