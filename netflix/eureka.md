@@ -1,6 +1,6 @@
 # 第一节 服务治理Eureka
 
-# 1、概述
+## 1、概述
 微服务框架中最为核心和基础的模块就是服务治理，它主要用来实现各个微服务实例的自动化注册与发现。在这个体系结构中有一个“中心点”——服务注册中心，每个服务必须注册到服务注册中心。而各个服务之间进行通讯并不需要知道具体服务的主机名和端口。这种实现的一个缺点是所有客户机必须实现某种逻辑来与这个中心点进行交互，这样在实现服务请求之前将增加一次额外的网络往返。
 
 
@@ -17,7 +17,7 @@ Spring Cloud Eureka实现的服务治理机制强调了CAP原理中的AP，即�
 
 
 
-# 3、 实现示例
+## 3、 实现示例
 
 在本例中为了体现服务治理功能，实现了三个微服务:
 
@@ -28,7 +28,7 @@ Spring Cloud Eureka实现的服务治理机制强调了CAP原理中的AP，即�
 - 一个Web应用程序，服务的消费者(Spring Cloud Netflix Feign Client)
 
 
-## 3.1 注册中心
+### 3.1 注册中心
 
 使用Spring Cloud Netflix Eureka实现一个注册中心非常简单。在pom里增加spring-cloud-starter-eureka-server依赖，在启动类里添加@EnableEurekaServer注解。
 
@@ -85,7 +85,7 @@ eureka:
 现在通过浏览器访问http://localhost:8888 可以看到Eureka的控制台，在那里能看到将来注册后的服务实例和一些状态和健康指标。
 ![1.png](https://upload-images.jianshu.io/upload_images/11110195-6914b86ace9cdc30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## 3.2 服务提供者
+### 3.2 服务提供者
 
 首先我们添加一些依赖关系
 ```
@@ -140,7 +140,7 @@ eureka:
 我们让Spring Boot为我们选择一个随机端口，因为后面是使用名称来访问这个服务。现在重新访问Eureka控制台可以看到新注册的这个服务。
 ![2.png](https://upload-images.jianshu.io/upload_images/11110195-3e2c072bdc506fc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## 3.3 服务消费者
+### 3.3 服务消费者
 
 最后我们实现第三个微服务，使用Spring Netflix Feign Client实现的REST消费Web应用。
 
@@ -222,5 +222,5 @@ eureka:
 ```
 Hello from 'SPRING-CLOUD-EUREKA-CLIENT'!
 ```
-# 4、结论
+## 4、结论
 我们现在可以使用Spring Cloud Netflix Eureka Server实现服务注册中心，并注册一些Eureka Clients。在创建服务提供者的时候没有指定端口，这样服务将监听一个随机选择的端口。使用Feign Client通过服务名可以定位和消费这个REST服务，甚至在位置发生变化时也可以。
