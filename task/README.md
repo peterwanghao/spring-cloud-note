@@ -1,10 +1,11 @@
+# 第八章 Spring Cloud Task
 
-# 1. 概述
+## 1. 概述
 Spring Cloud Task的目标是为Spring Boot应用程序提供创建短运行期微服务的功能。在Spring Cloud Task中，我们可以灵活地动态运行任何任务，按需分配资源并在任务完成后检索结果。Tasks是Spring Cloud Data Flow中的一个基础项目，允许用户将几乎任何Spring Boot应用程序作为一个短期任务执行。
 
-# 2. 一个简单的任务应用程序
+## 2. 一个简单的任务应用程序
 
-## 2.1 添加相关依赖项
+### 2.1 添加相关依赖项
 首先，我们可以添加具有spring-cloud-task-dependencies的依赖关系管理部分：
 ~~~
 <dependency>
@@ -38,7 +39,7 @@ Spring Cloud Task的目标是为Spring Boot应用程序提供创建短运行期�
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 ```
-## 2.2 @EnableTask注解
+### 2.2 @EnableTask注解
 要引导Spring Cloud Task的功能，我们需要添加@EnableTask注解：
 ```
 @SpringBootApplication
@@ -56,7 +57,7 @@ TaskRepository的主要信息在TaskExecution类中建模。该类的包含的�
 
 Spring Boot提供了一个接口ExitCodeExceptionMapper，它将未捕获的异常映射到允许经过详细调试的退出代码。Cloud Task将信息存储在数据源中以供将来分析。
 
-## 2.3 为TaskRepository配置DataSource
+### 2.3 为TaskRepository配置DataSource
 一旦任务结束，存储TaskRepository的内存映射将消失，我们将丢失与Task事件相关的数据。要想永久存储，我们将使用MySQL作为Spring Data JPA的数据源。
 
 数据源 在application.yml文件中配置。要配置Spring Cloud Task以使用提供的数据源作为TaskRepository的存储，我们需要创建一个扩展DefaultTaskConfigurer的类。
@@ -80,7 +81,7 @@ public HelloWorldTaskConfigurer getTaskConfigurer() {
 ```
 这样就完成了将TaskRepository存储到MySQL数据库的配置。
 
-## 2.4 实现
+### 2.4 实现
 在Spring Boot中，我们可以在应用程序完成启动之前执行任何任务。我们可以使用ApplicationRunner或CommandLineRunner接口来创建一个简单的Task。
 
 我们需要实现这些接口的run方法，并将实现类声明为bean：
@@ -96,7 +97,7 @@ public HelloWorldTaskConfigurer getTaskConfigurer() {
 	}
 ```
 
-# 3.  Spring Cloud Task的生命周期
+## 3.  Spring Cloud Task的生命周期
 首先，我们在TaskRepository中创建一个条目。这表明所有bean都已准备好在Application中使用，并且Runner接口的run方法已准备好执行。
 
 完成run方法的执行或ApplicationContext事件的任何失败后，TaskRepository将使用另一个条目进行更新。
@@ -149,7 +150,7 @@ public TaskListener taskListener() {
 14:23:30.132 [main] INFO  c.p.spring.cloud.task.TaskDemo - Started TaskDemo in 2.405 seconds (JVM running for 2.771)
 ```
 
-# 4.  与Spring Batch集成
+## 4.  与Spring Batch集成
 我们可以将Spring Batch Job作为Task执行，并使用Spring Cloud Task记录Job执行的事件。要启用此功能，我们需要添加与Boot和Cloud相关的Batch依赖项：
 ```
 <dependency>
@@ -227,7 +228,7 @@ public class TaskDemo {
 14:30:26.455 [main] INFO  c.p.spring.cloud.task.TaskDemo - Started TaskDemo in 3.746 seconds (JVM running for 4.093)
 ```
 
-# 5.  从Stream启动任务
+## 5.  从Stream启动任务
 我们可以从Spring Cloud Stream触发任务。为了达到这个目的，我们使用@EnableTaskLaucnher注解。这一次，我们使用Spring Boot应用程序添加注释，TaskSink将可用：
 ```
 @SpringBootApplication
@@ -267,5 +268,5 @@ public class SpringCloudTaskSinkApplicationIntegrationTest{
 ```
 现在，我们创建一个TaskLaunchRequest实例，并将其作为GenericMessage < TaskLaunchRequest >对象的有效负载发送。然后我们可以调用Sink的输入通道，将GenericMessage对象保留在通道中。
 
-# 6. 结论
+## 6. 结论
 在本文中，我们探讨了Spring Cloud Task的执行方式以及如何配置它以在数据库中记录其事件。我们还观察了如何定义Spring Batch作业并将其存储在TaskRepository中。最后，我们解释了如何从Spring Cloud Stream中触发Task。
