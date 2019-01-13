@@ -1,7 +1,6 @@
 # Summary
 
-* [目录](catalog.md)
-* [本书内容](README.md)
+
 * [第一章 Spring Cloud 介绍](./brief/README.md)
     * [第一节 架构](./brief/architecture.md)
     * [第二节 特征](./brief/features.md)
