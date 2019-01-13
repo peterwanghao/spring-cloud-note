@@ -1,5 +1,6 @@
 # Summary
 
+* [目录](catalog.md)
 * [本书内容](README.md)
 * [第一章 Spring Cloud 介绍](./brief/README.md)
     * [第一节 架构](./brief/architecture.md)
@@ -27,3 +28,4 @@
     * [第一节 与RabbitMQ集成](./stream/rabbitMQ.md)
 * [第八章 Spring Cloud Task](./task/README.md)
 * [第九章 Spring Cloud CLI](./cli/README.md)
+
