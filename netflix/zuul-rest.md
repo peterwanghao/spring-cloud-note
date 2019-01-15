@@ -1,11 +1,13 @@
 # 使用Spring Cloud Netflix Zuul代理网关访问后台REST服务
 
 ## 1.概述
+
 在本文中，我们将探讨如何在互相单独部署的前端应用程序和后端REST API服务之间进行通信。目的是解决浏览器的跨域资源访问和同源策略限制，允许页面UI能够调用后台的API，即使它们不在同一个服务器中。
 
 我们在这里创建了两个独立的应用程序 - 一个UI应用程序和一个简单的REST API，我们将在UI应用程序中使用Zuul代理来代理对REST API的调用。Zuul是Netflix基于JVM的路由器和服务器端负载均衡器。Spring Cloud与嵌入式Zuul代理有很好的集成。
 
 ## 2.REST应用
+
 我们的REST API应用程序是一个简单的Spring Boot应用程序。在本文中将在端口8081上运行服务器中部署的API 。
 
 配置文件
@@ -41,7 +43,8 @@ public class FooController {
 }
 ```
 
-## 3. 前端应用程序
+## 3.前端应用程序
+
 我们的UI应用程序也是一个简单的Spring Boot应用程序。在本文中此应用运行在端口8080上。
 
 首先，我们需要通过Spring Cloud向我们的UI应用程序的pom.xml添加对zuul支持的依赖：
@@ -119,11 +122,13 @@ public class UiApplication extends SpringBootServletInitializer {
 这里使用@EnableZuulProxy注解来启动Zuul代理，这非常干净和简洁。
 
 ## 4.运行测试
+
 分别启动2个应用系统，在浏览器中输入http://localhost:8080/index 
 每点击一次“New Foo”按钮就访问后台REST API一次。
 ![这里写图片描述](https://img-blog.csdn.net/2018091113445319?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## 5.定制Zuul过滤器
+
 有多个Zuul过滤器可用，我们也可以创建自己的定制过滤器：
 
 ```
@@ -148,6 +153,7 @@ public class CustomZuulFilter extends ZuulFilter {
 这个简单的过滤器只是在请求头中添加了一个名为“ Test ” 的属性- 当然，我们可以根据需要增加我们的请求。
 
 ## 6.测试自定义Zuul过滤器
+
 最后，让我们测试一下，确保我们的自定义过滤器正常工作 - 首先我们将在Foos资源服务器上修改我们的FooController：
 
 ```
@@ -179,4 +185,5 @@ public void whenSendRequest_thenHeaderAdded() {
 ```
 
 ## 7.结论
+
 在这篇文章中，我们专注于使用Zuul将请求从UI应用程序路由到REST API。我们成功地解决了CORS和同源策略，我们还设法定制和扩充了传输中的HTTP请求。
