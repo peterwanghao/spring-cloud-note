@@ -178,5 +178,5 @@ public void whenSendRequest_thenHeaderAdded() {
 }
 ```
 
-# 7.结论
+## 7.结论
 在这篇文章中，我们专注于使用Zuul将请求从UI应用程序路由到REST API。我们成功地解决了CORS和同源策略，我们还设法定制和扩充了传输中的HTTP请求。
