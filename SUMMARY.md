@@ -17,6 +17,7 @@
         * [使用Spring Cloud Netflix Zuul代理网关访问后台REST服务](./netflix/zuul-rest.md)
         * [Zuul和Eureka的负载均衡示例](./netflix/zuul-eureka.md)
     * [第五节 外部化配置Archaius](./netflix/archaius.md)
+        * [Archaius之多数据源](./netflix/archaius-multisource.md)
 * [第三章 配置管理](./configuration/README.md)
     * [第一节 Spring Cloud Config](./configuration/config.md)
     * [第二节 Spring Cloud Vault](./configuration/vault.md)
