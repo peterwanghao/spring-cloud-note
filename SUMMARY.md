@@ -14,6 +14,8 @@
         * [集群监控Turbine](./netflix/hystrix-turbine.md)
     * [第三节 客户端调用Ribbon](./netflix/ribbon.md)
     * [第四节 路由Zuul](./netflix/zuul.md)
+        * [使用Spring Cloud Netflix Zuul代理网关访问后台REST服务](./netflix/zuul-rest.md)
+        * [Zuul和Eureka的负载均衡示例](./netflix/zuul-eureka.md)
     * [第五节 外部化配置Archaius](./netflix/archaius.md)
 * [第三章 配置管理](./configuration/README.md)
     * [第一节 Spring Cloud Config](./configuration/config.md)
