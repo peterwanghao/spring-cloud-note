@@ -18,7 +18,7 @@ Spring Cloud Consul 项目提供Spring Boot 集成 Consul的非常轻松的方�
 在本文中，我们将使用在localhost：8500上运行的Consul代理。有关如何安装Consul和运行代理的更多详细信息，请参阅此[链接](https://www.consul.io/intro/getting-started/install.html)。
 
 在windows下安装Consul,
-去官网下载：https://www.consul.io/downloads.html
+去官网下载：[https://www.consul.io/downloads.html](https://www.consul.io/downloads.html)
 
 解压到某个目录下。cmd启动：
 ```
@@ -151,10 +151,11 @@ public ResponseEntity<String> myCustomCheck() {
 
 如果我们去Consul代理网站查看，我们会看到我们的应用程序健康检测是失败的。要解决此问题，“/my-health-check”服务应返回HTTP 200 OK状态代码。
 
-![Consul代理网站截图](https://img-blog.csdnimg.cn/20181207144858418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==,size_16,color_FFFFFF,t_70)
+![Consul代理网站截图](./static/consul.png)
 
 健康检测详情
-![健康检测详情](https://img-blog.csdnimg.cn/20181207144933675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==,size_16,color_FFFFFF,t_70)
+
+![健康检测详情](./static/health-monitoring.png)
 
 ## 6.分布式配置
 

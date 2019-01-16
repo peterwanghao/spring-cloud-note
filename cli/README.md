@@ -33,37 +33,37 @@ $ spring cloud --version
 
 CLI提供七种核心服务，可以使用单行命令运行和部署。
 
-在http://localhost:8888上启动Cloud Config服务器：
+在[http://localhost:8888](http://localhost:8888)上启动Cloud Config服务器：
 ```
 $ spring cloud configserver
 ```
 
-http://localhost:8761上启动Eureka服务器：
+在[http://localhost:8761](http://localhost:8761)上启动Eureka服务器：
 ```
 $ spring cloud eureka
 ```
 
-在http://localhost:9095上启动H2服务器：
+在[http://localhost:9095](http://localhost:9095)上启动H2服务器：
 ```
-1 $ spring cloud h2
+$ spring cloud h2
 ```
 
-在http://localhost:9091上启动Kafka服务器：
+在[http://localhost:9091](http://localhost:9091)上启动Kafka服务器：
 ```
 $ spring cloud kafka
 ```
 
-在http://localhost:9411上启动Zipkin服务器：
+在[http://localhost:9411](http://localhost:9411)上启动Zipkin服务器：
 ```
 $ spring cloud zipkin
 ```
 
-在http://localhost:9393上启动Dataflow服务器：
+在[http://localhost:9393](http://localhost:9393)上启动Dataflow服务器：
 ```
 $ spring cloud dataflow
 ```
 
-在http://localhost:7979上启动Hystrix仪表板：
+在[http://localhost:7979](http://localhost:7979)上启动Hystrix仪表板：
 ```
 $ spring cloud hystrixdashboard
 ```
@@ -139,7 +139,7 @@ class api {
 $ spring run restapi.groovy
 ```
 
-访问http://localhost:8080/api/get应该显示：
+访问[http://localhost:8080/api/get](http://localhost:8080/api/get)应该显示：
 ```
 {"message":"Hello"}
 ```

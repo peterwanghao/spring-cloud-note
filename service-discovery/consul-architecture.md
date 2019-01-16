@@ -5,7 +5,7 @@ Consul是由HashiCorp基于Go语言开发的支持多数据中心分布式高可
 ## Consul架构
 只有一个数据中心的Consul的架构图如下：
 
-![Architecture](https://img-blog.csdnimg.cn/20181212214953687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==,size_16,color_FFFFFF,t_70)
+![Architecture](./static/consul-architecture.png)
 
 我们可以看到，有三个不同的服务器由Consul管理。整个架构通过使用Raft算法工作，这有助于我们从三个不同的服务器中选出一个领导者。然后根据诸如Follower和Leader之类的标签标记这些服务器。顾名思义，Follower有责任遵循Leader的决定。这三个服务器之间进一步相互连接以进行通信。
 
@@ -19,7 +19,7 @@ Raft是提供一致性的算法。它依赖于CAP定理的原理，该定理指�
 
 下图描述了使用Raft算法工作的工作流模型
 
-![Raft算法](https://img-blog.csdnimg.cn/20181212215445859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==,size_16,color_FFFFFF,t_70)
+![Raft算法](./static/raft.png)
 
 ## 协议类型
 

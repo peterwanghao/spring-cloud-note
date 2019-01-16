@@ -57,8 +57,9 @@ logging.level.org.springframework.web=debug
 ```
 
 ### 1.4 运行
-至此Zipkin服务已经创建完毕，我们可以将服务启动起来验证一下。首先需要启动config、discovery服务，然后再启动zipkin服务。在浏览器里输入http://localhost:8088，能看到Zipkin的首页。
-![这里写图片描述](https://img-blog.csdn.net/20180504155615713?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+至此Zipkin服务已经创建完毕，我们可以将服务启动起来验证一下。首先需要启动config、discovery服务，然后再启动zipkin服务。在浏览器里输入[http://localhost:8088](http://localhost:8088)，能看到Zipkin的首页。
+
+![Zipkin控制台](./static/zipkin.png)
 
 ## 2. 服务配置
 将我们的服务配置为Zipkin Client将操作信息发送到Zipkin Server中。这里我们要修改book和gatew服务。
@@ -90,14 +91,17 @@ spring.sleuth.web.skipPattern=(^cleanup.*|.+favicon.*)
 ```
 
 ## 3. 运行
-将所有服务的启动起来，通过浏览器访问http://localhost:8080/book-service/books
-这时在Zipkin控制台http://localhost:8088 就能看到服务运行的样子。一个请求所花费的时间以及这次请求包含了2步各花费的时间。
-![这里写图片描述](https://img-blog.csdn.net/20180504160839210?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+将所有服务的启动起来，通过浏览器访问[http://localhost:8080/book-service/books](http://localhost:8080/book-service/books)
+
+这时在Zipkin控制台[http://localhost:8088](http://localhost:8088) 就能看到服务运行的样子。一个请求所花费的时间以及这次请求包含了2步各花费的时间。
+
+![Zipkin控制台](./static/zipkin-2.png)
 
 点击进去还能看到详细数据。
-![这里写图片描述](https://img-blog.csdn.net/20180504161015635?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-![这里写图片描述](https://img-blog.csdn.net/20180504161035262?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Zipkin控制台详情](./static/zipkin-3.png)
+
+![Zipkin控制台详情2](./static/zipkin-4.png)
 
 ## 4. 总结
 我们已经看到了将Zipkin集成到云应用程序中是多么容易。随着我们的应用越来越复杂，Zipkin可以为我们提供关于一个请求所花费时间的详细信息。这可以帮助我们确定程序在哪里减速，并指出我们的应用需要改进的地方。

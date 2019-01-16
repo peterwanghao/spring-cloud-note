@@ -18,7 +18,7 @@ Spring Cloud 的安全模块可以为Spring Boot应用提供基于令牌的安�
 ```
 它会自动包含spring-cloud-starter-security依赖。
 
-然后配置一个应用作为身份认证服务，认证服务部署为http://localhost:7070/authserver。认证服务使用JWT令牌。
+然后配置一个应用作为身份认证服务，认证服务部署为[http://localhost:7070/authserver](http://localhost:7070/authserver)。认证服务使用JWT令牌。
 
 由于有多个客户端来连接Spring OAuth2 Auth Server，需要在配置类里为inMemory生成器定义多个withClients。
 ```
@@ -151,16 +151,20 @@ zuul:
 
 ## 6. 运行效果
 直接访问受保护的资源服务，显示未认证
-![这里写图片描述](https://img-blog.csdn.net/20180720173530232?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-访问客户端http://localhost:8080/personInfo，重定向到身份认证页面
-![这里写图片描述](https://img-blog.csdn.net/20180720173617277?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![未认证状态](./static/result.png)
+
+访问客户端[http://localhost:8080/personInfo](http://localhost:8080/personInfo)，重定向到身份认证页面
+
+![登录界面](./static/login-in.png)
 
 输入用户名、密码（user/user），显示资源服务数据
-![这里写图片描述](https://img-blog.csdn.net/20180720173730111?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+![认证后状态](./static/result-2.png)
 
 通过Zuul代理访问资源服务
-![这里写图片描述](https://img-blog.csdn.net/20180720173812375?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+![认证后通过Zuul访问](./static/result-3.png)
 
 ## 7. 总结
 在这节中，我们讨论了如何使用Spring Cloud Security的OAuth2和Zuul来配置安全的认证服务和资源服务，以及使用Oauth2RestTemplate和嵌入的Zuul代理在服务之间传递OAuth2令牌。

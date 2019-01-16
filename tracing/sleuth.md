@@ -42,7 +42,7 @@ public class SleuthController {
 	}
 }
 ```
-启动应用，访问 http://localhost:8080/same-span，查看日志
+启动应用，访问 [http://localhost:8080/same-span](http://localhost:8080/same-span)，查看日志
 ```
 2018-04-16 16:35:54.151  INFO [Sleuth Tutorial,0afe3e67168fce4f,0afe3e67168fce4f,false] 5968 --- [nio-8080-exec-1] c.p.s.cloud.sleuth.SleuthController      : Same Span
 2018-04-16 16:35:55.161  INFO [Sleuth Tutorial,0afe3e67168fce4f,0afe3e67168fce4f,false] 5968 --- [nio-8080-exec-1] c.p.spring.cloud.sleuth.SleuthService    : Doing some work
@@ -99,7 +99,7 @@ public String helloSleuthAsync() throws InterruptedException {
 	return "success";
 }
 ```
-访问http://localhost:8080/async，查看日志如下：
+访问[http://localhost:8080/async](http://localhost:8080/async)，查看日志如下：
 ```
 2018-04-16 16:55:06.859  INFO [Sleuth Tutorial,4bc16602ac8262d5,4bc16602ac8262d5,false] 5968 --- [nio-8080-exec-6] c.p.s.cloud.sleuth.SleuthController      : Before Async Method Call
 2018-04-16 16:55:06.872  INFO [Sleuth Tutorial,4bc16602ac8262d5,4bc16602ac8262d5,false] 5968 --- [nio-8080-exec-6] c.p.s.cloud.sleuth.SleuthController      : After Async Method Call

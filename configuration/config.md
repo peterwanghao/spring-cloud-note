@@ -11,7 +11,8 @@ Spring Cloud Config实现的配置中心默认采用Git来存储配置信息，�
 在Windows系统下搭建本地的Git服务器，可参看教程  [http://blog.csdn.net/qwer971211/article/details/71156055](http://blog.csdn.net/qwer971211/article/details/71156055)
 
 创建一个新的版本库
-![1.png](https://upload-images.jianshu.io/upload_images/11110195-e5242d16cba9bd0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![git仓库](./static/git-repository.png)
 
 
 在此版本库里创建config-repo目录，提交两个配置文件
