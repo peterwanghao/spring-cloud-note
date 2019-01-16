@@ -237,7 +237,8 @@ Hystrix的一个不错的可选功能是能够在仪表板上监控其状态。
 在我们重新启动应用程序之后，我们在浏览器中访问http://localhost:8080/hystrix ，输入'http://localhost:8080/hystrix.stream ' 的指标URL 并开始监控。
 
 最后，我们应该看到这样的事情：
-![这里写图片描述](https://img-blog.csdn.net/20180816142900166?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+![Hystrix仪表板](./static/hystrix-dashboard.png)
 
 监视' hystrix.stream '是好的，但是如果你必须观看多个启用Hystrix的应用程序，它将变得不方便。为此，Spring Cloud提供了一个名为Turbine的工具，它可以聚合流以在一个Hystrix仪表板中显示。
 

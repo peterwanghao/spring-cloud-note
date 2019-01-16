@@ -115,7 +115,7 @@ public class ConfigPropertiesController {
 如果数据在任何时候发生变化，Archaius将在运行时检测到它并开始检索新值。
 
 访问地址 http://localhost:8082/properties-from-dynamic
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181121224710589.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==,size_16,color_FFFFFF,t_70)
+![输出](./static/system-out.png)
 
 
 ## 3.如何使用DynamoDB实例创建配置源

@@ -72,6 +72,6 @@ eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8888/eureka}
 ```
 
 依次启动Eureka服务注册中心，微服务和Turbine后，访问localhost:8000/hystrix.也就是turbine对应的hystrix。Hystrix Stream输入http://localhost:8000/turbine.stream 。分别访问两个业务服务，就可以在dashboard中看到他们的Hystrix Command信息了。
-![这里写图片描述](https://img-blog.csdn.net/20180820161206715?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BldGVyd2FuZ2hhbw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Hystrix仪表板](./static/hystrix-dashboard-2.png)
 
 通过Hystrix Dashboard和Turbine, 我们能够很方便地监控每个Hystrix的运行情况, 在出现问题的时候能够及时定位到问题所在的服务。

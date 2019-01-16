@@ -62,7 +62,7 @@ Hello from 'SPRING-CLOUD-EUREKA-CLIENT with Port Number 8081'!
 当Zuul收到请求时，它会获取一个可用的物理位置，并将请求转发给实际的服务实例。Zuul缓存服务实例的位置并将请求转发到实际位置的整个过程是开箱即用的，不需要额外的配置。
 
 在这里，我们可以看到Zuul如何封装同一服务的三个不同实例：
-![](https://upload-images.jianshu.io/upload_images/11110195-fe5639ad14dd3104.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Zuul负载均衡](./static/zuul-load-balancing.jpg)
 
 
 在内部，Zuul使用Netflix功能区从服务发现（Eureka Server）中查找服务的所有实例。让我们在出现多个实例时观察这种行为。
@@ -79,7 +79,7 @@ Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;
 ```
 
 通过Eureka的控制台，可以看到注册后的服务实例。
-![](https://upload-images.jianshu.io/upload_images/11110195-250057df2be5f554.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Eureka的控制台](./static/eureka-console-2.png)
 
 
 ### 4.2负载平衡示例
