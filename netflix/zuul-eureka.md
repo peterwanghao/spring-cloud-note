@@ -62,6 +62,7 @@ Hello from 'SPRING-CLOUD-EUREKA-CLIENT with Port Number 8081'!
 当Zuul收到请求时，它会获取一个可用的物理位置，并将请求转发给实际的服务实例。Zuul缓存服务实例的位置并将请求转发到实际位置的整个过程是开箱即用的，不需要额外的配置。
 
 在这里，我们可以看到Zuul如何封装同一服务的三个不同实例：
+
 ![Zuul负载均衡](./static/zuul-load-balancing.jpg)
 
 
@@ -79,6 +80,7 @@ Instance count:2;	Active connections count: 0;	Circuit breaker tripped count: 0;
 ```
 
 通过Eureka的控制台，可以看到注册后的服务实例。
+
 ![Eureka的控制台](./static/eureka-console-2.png)
 
 

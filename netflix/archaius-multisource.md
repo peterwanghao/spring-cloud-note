@@ -115,6 +115,7 @@ public class ConfigPropertiesController {
 如果数据在任何时候发生变化，Archaius将在运行时检测到它并开始检索新值。
 
 访问地址 http://localhost:8082/properties-from-dynamic
+
 ![输出](./static/system-out.png)
 
 
