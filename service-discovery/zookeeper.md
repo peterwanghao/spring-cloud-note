@@ -179,7 +179,7 @@ logging:
 
 HelloWorld REST服务在Zookeeper中注册了自己，Greeting服务通过声明式客户端发现和调用HelloWorld 服务。
 
-现在我们可以运行这两个服务，然后在浏览器中访问 http://localhost:8083/get-greeting，将返回
+现在我们可以运行这两个服务，然后在浏览器中访问 [http://localhost:8083/get-greeting](http://localhost:8083/get-greeting)，将返回
 ```
 Hello World!
 ```
