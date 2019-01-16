@@ -83,7 +83,8 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 ```
 现在通过浏览器访问http://localhost:8888 可以看到Eureka的控制台，在那里能看到将来注册后的服务实例和一些状态和健康指标。
-![1.png](https://upload-images.jianshu.io/upload_images/11110195-6914b86ace9cdc30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![Eureka的控制台](https://upload-images.jianshu.io/upload_images/11110195-6914b86ace9cdc30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 3.2 服务提供者
 
@@ -138,7 +139,8 @@ eureka:
     preferIpAddress: true
 ```
 我们让Spring Boot为我们选择一个随机端口，因为后面是使用名称来访问这个服务。现在重新访问Eureka控制台可以看到新注册的这个服务。
-![2.png](https://upload-images.jianshu.io/upload_images/11110195-3e2c072bdc506fc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![注册的服务](https://upload-images.jianshu.io/upload_images/11110195-3e2c072bdc506fc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 3.3 服务消费者
 
